@@ -1,20 +1,20 @@
-vendor/
+DataSyncApi/vendor/
 node_modules/
 npm-debug.log
 
 # Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+DataSyncApi/bootstrap/compiled.php
+DataSyncApi/app/storage/
 
 # Laravel 5 & Lumen specific
-public/storage
-public/hot
-storage/*.key
-.env.*.php
-.env.php
-.env
-Homestead.yaml
-Homestead.json
+DataSyncApi/public/storage
+DataSyncApi/public/hot
+DataSyncApi/storage/*.key
+DataSyncApi/.env.*.php
+DataSyncApi/.env.php
+DataSyncApi/.env
+DataSyncApi/Homestead.yaml
+DataSyncApi/Homestead.json
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
