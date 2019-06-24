@@ -80,18 +80,21 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="title m-b-md"  style="font-size:60px; margin-bottom: 00px;">
+                    Android MySql DataSync
+                </div>
+                <div class="title m-b-md" style="font-size:30px; margin-bottom: 50px;">
+                    through LARAVEL API
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="./profile/doc">Profile API Doc</a>
+                    <a href="./">API Doc</a>
+                    <a href="./">API Doc</a>
+                    <a href="./">API Doc</a>
+                    <a href="./">API Doc</a>
+                    <a href="./">API Doc</a>
+                    <a href="./">API Doc</a>
                 </div>
             </div>
         </div>

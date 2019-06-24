@@ -15,7 +15,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return 'index';
+        return json_encode(Profiles::all());
+        // return 'index';
     }
 
     /**
@@ -50,7 +51,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        return json_encode(Profiles::find($id));
     }
 
     /**
@@ -73,7 +74,11 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $profile = json_decode($request->all()["profile"]);
+        $pro = (array) $profile->profile->data;
+        $profile = Profiles::findOrFail($id);
+        $profile->update($pro);
+
     }
 
     /**
@@ -84,6 +89,9 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $profile = Profiles::findOrFail($id);
+        $profile->delete();
+
+        return "Row Deleted successfully";
     }
 }

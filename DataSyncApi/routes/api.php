@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+// Store
 // api/profile
 // POST Method
 // Data Formate
@@ -26,6 +26,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //       "data":{
 //         "first_name":"First Name",
 //         "last_name":"Last Name"
+//         },
+        
+//       "status":"create",
+//       "message":"Create Profile"
+//   }
+// }
+// Update
+// api/profile/{id}
+// PUT Method
+// Data Formate
+// {
+//   "profile": {
+//       "data":{
+//         "first_name":"First Name Updated",
+//         "last_name":"Last Name Updated"
 //         },
         
 //       "status":"create",
