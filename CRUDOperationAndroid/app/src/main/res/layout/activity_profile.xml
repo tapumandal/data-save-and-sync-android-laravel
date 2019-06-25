@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MainActivity">
+    tools:context=".Activity.Profile.Profile">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:background="#1B5E20">
+        android:padding="20dp">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ProfileActivity"
+            android:text="CreateProfile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -23,7 +23,7 @@
             android:paddingRight="30dp"
             android:background="#237026"
             android:textColor="#FFF"
-            android:onClick="profileActivity"/>
+            android:onClick="profileCreateActivity"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
