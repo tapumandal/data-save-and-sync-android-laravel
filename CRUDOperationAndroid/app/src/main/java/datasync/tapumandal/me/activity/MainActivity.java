@@ -1,13 +1,12 @@
-package datasync.tapumandal.me.Activity;
+package datasync.tapumandal.me.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 
-import datasync.tapumandal.me.Activity.Profile.Profile;
+import datasync.tapumandal.me.activity.Profile.Profile;
 import datasync.tapumandal.me.R;
 
 public class MainActivity extends AppCompatActivity {

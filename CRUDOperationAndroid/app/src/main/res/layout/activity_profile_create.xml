@@ -4,58 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.Profile.ProfileCreateActivity">
+    tools:context=".activity.Profile.ProfileCreateActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1B5E20"
+        android:background="@color/colorPrimary"
         android:padding="50dp"
         android:orientation="vertical"
         android:gravity="center">
 
         <EditText
-            android:id="@+id/et_first_name"
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#E2DEDE"
-            android:hint="First Name"
+            android:hint="Name"
             android:paddingLeft="20dp"
             />
         <EditText
-            android:id="@+id/et_first_name"
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="#E2DEDE"
-            android:hint="First Name"
+            android:hint="Email"
             android:paddingLeft="20dp"
             />
         <EditText
-            android:id="@+id/et_first_name"
+            android:id="@+id/et_gender"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="#E2DEDE"
-            android:hint="First Name"
+            android:hint="Gender"
             android:paddingLeft="20dp"
             />
         <EditText
-            android:id="@+id/et_first_name"
+            android:id="@+id/et_phone"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="#E2DEDE"
-            android:hint="First Name"
+            android:hint="Phone"
             android:paddingLeft="20dp"
             />
         <EditText
-            android:id="@+id/et_first_name"
+            android:id="@+id/et_country"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="#E2DEDE"
-            android:hint="First Name"
+            android:hint="Country"
             android:paddingLeft="20dp"
             />
         <Button
@@ -71,7 +71,7 @@
             android:paddingRight="30dp"
             android:background="#237026"
             android:textColor="#FFF"
-            android:onClick="profileActivity"/>
+            android:onClick="createProfile"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
