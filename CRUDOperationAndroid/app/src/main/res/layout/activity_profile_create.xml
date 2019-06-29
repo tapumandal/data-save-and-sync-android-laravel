@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.Profile.ProfileCreateActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:padding="50dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#E2DEDE"
+            android:hint="Name"
+            android:paddingLeft="20dp"
+            />
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#E2DEDE"
+            android:hint="Email"
+            android:paddingLeft="20dp"
+            />
+        <EditText
+            android:id="@+id/et_gender"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#E2DEDE"
+            android:hint="Gender"
+            android:paddingLeft="20dp"
+            />
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#E2DEDE"
+            android:hint="Phone"
+            android:paddingLeft="20dp"
+            />
+        <EditText
+            android:id="@+id/et_country"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#E2DEDE"
+            android:hint="Country"
+            android:paddingLeft="20dp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="Create Profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:background="#237026"
+            android:textColor="#FFF"
+            android:onClick="createProfile"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
