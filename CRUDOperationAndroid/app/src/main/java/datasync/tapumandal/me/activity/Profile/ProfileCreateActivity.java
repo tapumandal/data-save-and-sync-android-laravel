@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import datasync.tapumandal.me.Interface.ApiInterface;
 import datasync.tapumandal.me.R;
 import datasync.tapumandal.me.storage.dao.ProfileDao;
 import datasync.tapumandal.me.storage.database.ProfileDatabase;
@@ -24,6 +25,8 @@ public class ProfileCreateActivity extends AppCompatActivity {
 
     private ProfileDao profileDao;
 
+    private ApiInterface apiInterface;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,8 @@ public class ProfileCreateActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_profile_create);
 
+        apiInterface = null;
+//        apiInterface = RetrofitApiClient.getClient().create(ApiInterface.class);
 
         ProfileDatabase db = ProfileDatabase.getProfileDatabase(this);
         profileDao = db.profileDao();
@@ -56,8 +61,14 @@ public class ProfileCreateActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), name + "-" + email, Toast.LENGTH_LONG).show();
 
+        saveProfileInRemoteServer();
         //profileDao.insertAll((Profile) profileDao);
         new insertInAsyncTask().execute(profileModel);
+    }
+
+    private void saveProfileInRemoteServer() {
+//        Call<ServerResponse> call = apiInterface.saveProfile(profileModel);
+        apiInterface.saveProfile(profileModel);
     }
 
 

@@ -38,9 +38,11 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         // $profile = json_decode($request->all());
-        $profile = json_decode($request->all()["profile"]);
-        $pro = (array) $profile->profile->data;
-        DB::table("profiles")->insert($pro);
+        // $profile = json_decode($request->all()["profile"]);
+        // $pro = (array) $profile->profile->data;
+        // DB::table("profiles")->insert((array) $request->all()["profile"]);
+        // return "data store successfully";
+        return (array) $request->all()["profile"];
     }
 
     /**

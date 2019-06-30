@@ -6,7 +6,6 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
-import datasync.tapumandal.me.activity.Profile.Profile;
 import datasync.tapumandal.me.storage.entity.ProfileModel;
 
 @Dao
