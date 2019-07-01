@@ -3,6 +3,7 @@ package datasync.tapumandal.me.activity.Profile;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -12,9 +13,15 @@ import java.util.List;
 
 import datasync.tapumandal.me.Interface.ApiInterface;
 import datasync.tapumandal.me.R;
+import datasync.tapumandal.me.retrofit.RetrofitApiClient;
 import datasync.tapumandal.me.storage.dao.ProfileDao;
 import datasync.tapumandal.me.storage.database.ProfileDatabase;
+import datasync.tapumandal.me.storage.entity.Data;
 import datasync.tapumandal.me.storage.entity.ProfileModel;
+import datasync.tapumandal.me.storage.entity.ServerResponse;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProfileCreateActivity extends AppCompatActivity {
 
@@ -35,10 +42,11 @@ public class ProfileCreateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_create);
 
         apiInterface = null;
-//        apiInterface = RetrofitApiClient.getClient().create(ApiInterface.class);
+        apiInterface = RetrofitApiClient.getClient().create(ApiInterface.class);
 
-        ProfileDatabase db = ProfileDatabase.getProfileDatabase(this);
-        profileDao = db.profileDao();
+
+//        ProfileDatabase db = ProfileDatabase.getProfileDatabase(this);
+//        profileDao = db.profileDao();
 
     }
 
@@ -46,29 +54,61 @@ public class ProfileCreateActivity extends AppCompatActivity {
 
         profileModel = new ProfileModel();
 
+        Data data = new Data();
+
         name = ((EditText) findViewById(R.id.et_name)).getText().toString();
         email = ((EditText) findViewById(R.id.et_email)).getText().toString();
         gender = ((EditText) findViewById(R.id.et_gender)).getText().toString();
         phone = ((EditText) findViewById(R.id.et_phone)).getText().toString();
         country = ((EditText) findViewById(R.id.et_country)).getText().toString();
 
-        profileModel.setName(name);
-        profileModel.setEmail(email);
+        data.setName(name);
+        data.setEmail(email);
         profileModel.setGender(gender);
         profileModel.setPhone(phone);
-        profileModel.setCountry(country);
+        data.setCountry(country);
+
+
+
 
 
         Toast.makeText(getApplicationContext(), name + "-" + email, Toast.LENGTH_LONG).show();
 
-        saveProfileInRemoteServer();
-        //profileDao.insertAll((Profile) profileDao);
-        new insertInAsyncTask().execute(profileModel);
+        saveProfileInRemoteServer(data);
+        //profileDao.insertAll((ProfileActivity) profileDao);
+
+//        new insertInAsyncTask().execute(profileModel);
     }
 
-    private void saveProfileInRemoteServer() {
-//        Call<ServerResponse> call = apiInterface.saveProfile(profileModel);
-        apiInterface.saveProfile(profileModel);
+    private void saveProfileInRemoteServer(Data data) {
+        Call<ServerResponse> call = apiInterface.saveProfile(data);
+
+        call.enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+
+
+                if (response.isSuccessful())
+
+                    Toast.makeText(ProfileCreateActivity.this, "Call successfull", Toast.LENGTH_SHORT).show();
+
+                else {
+                    Log.d("response", response.toString());
+                }
+
+                Log.d("response", response.toString());
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ServerResponse> call, Throwable t) {
+                Toast.makeText(ProfileCreateActivity.this, "Call faill", Toast.LENGTH_SHORT).show();
+
+                Log.d("response", t.getMessage());
+
+            }
+        });
     }
 
 

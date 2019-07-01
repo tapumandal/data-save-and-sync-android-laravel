@@ -37,13 +37,15 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
+        
         // $tableName = $request->all()["table"];
         // if($tableName == null || $tableName == "")
             $tableName = "profiles";
         $data = (array) json_decode($request->all()["profile"]);
         DB::table($tableName)->insert($data);
 
-        return "Data inserted successfully";
+        $status["status"] = "success";
+        return json_encode($status);
     }
 
     /**

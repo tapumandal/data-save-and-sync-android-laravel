@@ -23,8 +23,8 @@ public class ProfileModel {
     @ColumnInfo(name="phone")
     private String phone;
 
-    @ColumnInfo(name="state")
-    private String state;
+//    @ColumnInfo(name="state")
+//    private String state;
 
     @ColumnInfo(name="country")
     private String country;
@@ -72,13 +72,13 @@ public class ProfileModel {
         this.phone = phone;
     }
 
-    public String getState() {
-        return state;
-    }
+//    public String getState() {
+//        return state;
+//    }
 
-    public void setState(String state) {
-        this.state = state;
-    }
+//    public void setState(String state) {
+//        this.state = state;
+//    }
 
     public String getCountry() {
         return country;
