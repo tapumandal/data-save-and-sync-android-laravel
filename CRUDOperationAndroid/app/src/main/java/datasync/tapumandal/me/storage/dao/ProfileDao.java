@@ -18,4 +18,8 @@ public interface ProfileDao {
     @Insert
     void insertAll(ProfileModelLocal profileModelLocal);
 
+
+    @SuppressWarnings("AndroidUnresolvedRoomSqlReference")
+    @Query("UPDATE profiles SET sync_status='true' WHERE id = :id")
+    void update(Integer id);
 }

@@ -19,9 +19,11 @@ import java.util.List;
 import datasync.tapumandal.me.Interface.ApiInterface;
 import datasync.tapumandal.me.R;
 import datasync.tapumandal.me.retrofit.RetrofitApiClient;
+import datasync.tapumandal.me.service.RemoteStorage;
 import datasync.tapumandal.me.storage.dao.ProfileDao;
 import datasync.tapumandal.me.storage.database.ProfileDatabase;
 import datasync.tapumandal.me.storage.entity.Data;
+import datasync.tapumandal.me.storage.entity.ProfileModel;
 import datasync.tapumandal.me.storage.entity.ProfileModelLocal;
 import datasync.tapumandal.me.storage.entity.RemoteProfileListModel;
 import datasync.tapumandal.me.storage.entity.ServerResponse;
@@ -35,6 +37,8 @@ public class ProfileActivity extends AppCompatActivity {
     private ApiInterface apiInterface;
 
     private ProfileDao profileDao;
+
+    List<ProfileModelLocal> profileModelLocalUpload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +155,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void loadLocalProfile(List<ProfileModelLocal> profileModelLocalRead) {
 
+        profileModelLocalUpload = profileModelLocalRead;
         ArrayList<String> pro = new ArrayList<String>();
 
         for (int i=0; i<profileModelLocalRead.size(); i++){
@@ -171,6 +176,62 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     public void syncLocalData(View view) {
+        Toast.makeText(this, "synced", Toast.LENGTH_SHORT).show();
 
+
+//        List<ProfileModel> profileModelUpload = (List<ProfileModel>) new ProfileModel();
+        ProfileModel profileModelUpload = new ProfileModel();
+
+
+
+        for (int i=0; i<profileModelLocalUpload.size(); i++){
+            profileModelUpload.setName(profileModelLocalUpload.get(i).getName());
+            profileModelUpload.setEmail(profileModelLocalUpload.get(i).getEmail());
+            profileModelUpload.setGender(profileModelLocalUpload.get(i).getGender());
+            profileModelUpload.setPhone(profileModelLocalUpload.get(i).getPhone());
+            profileModelUpload.setCountry(profileModelLocalUpload.get(i).getCountry());
+
+            new RemoteStorage().saveProfileInRemoteServer(profileModelUpload);
+
+            new updateInAsyncTask().execute((Integer) profileModelLocalUpload.get(i).getId());
+        }
+
+
+        startActivity(new Intent(this, ProfileActivity.class));
+
+    }
+
+
+
+    class updateInAsyncTask extends AsyncTask<Integer, Void, Void> {
+
+
+//        private List<ProfileModelLocal> profileModelLocalRead;
+
+
+        private List<ProfileModelLocal> profileModelLocalRead;
+
+        @Override
+        protected Void doInBackground(Integer... integers) {
+
+
+            profileDao.update(integers[0]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+//            Log.d(   "profile", new Gson().toJson(profileModelLocalRead));
+//            Toast.makeText(ProfileActivity.this, "XXXXXX # " + profileModelLocalRead.get(0).getName(), Toast.LENGTH_SHORT).show();
+
+//            loadLocalProfile(profileModelLocalRead);
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
     }
 }
