@@ -6,7 +6,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "profiles")
-public class ProfileModel {
+public class ProfileModelLocal {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -29,8 +29,8 @@ public class ProfileModel {
     @ColumnInfo(name="country")
     private String country;
 
-//    @ColumnInfo(name="sync_status")
-//    private String syncStatus;
+    @ColumnInfo(name="sync_status")
+    private String syncStatus;
 
     public int getId() {
         return id;
@@ -88,11 +88,11 @@ public class ProfileModel {
         this.country = country;
     }
 
-//    public String getSyncStatus() {
-//        return syncStatus;
-//    }
+    public String getSyncStatus() {
+        return syncStatus;
+    }
 
-//    public void setSyncStatus(String syncStatus) {
-//        this.syncStatus = syncStatus;
-//    }
+    public void setSyncStatus(String syncStatus) {
+        this.syncStatus = syncStatus;
+    }
 }
