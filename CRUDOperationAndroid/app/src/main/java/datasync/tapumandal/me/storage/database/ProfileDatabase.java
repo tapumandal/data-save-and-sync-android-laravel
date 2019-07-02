@@ -7,9 +7,9 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import datasync.tapumandal.me.storage.dao.ProfileDao;
-import datasync.tapumandal.me.storage.entity.ProfileModel;
+import datasync.tapumandal.me.storage.entity.ProfileModelLocal;
 
-@Database(entities = {ProfileModel.class}, version = 2)
+@Database(entities = {ProfileModelLocal.class}, version = 1)
 public abstract class ProfileDatabase extends RoomDatabase {
 
     private static ProfileDatabase profileDatabase;

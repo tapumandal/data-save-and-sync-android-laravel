@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import datasync.tapumandal.me.activity.Profile.Profile;
+import datasync.tapumandal.me.activity.Profile.ProfileActivity;
 import datasync.tapumandal.me.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void profileActivity(View view) {
 
-        startActivity(new Intent(this, Profile.class));
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 }

@@ -6,16 +6,20 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
-import datasync.tapumandal.me.activity.Profile.Profile;
 import datasync.tapumandal.me.storage.entity.ProfileModel;
+import datasync.tapumandal.me.storage.entity.ProfileModelLocal;
 
 @Dao
 public interface ProfileDao {
 
     @Query("SELECT * FROM profiles")
-    List<ProfileModel> getAll();
+    List<ProfileModelLocal> getAll();
 
     @Insert
-    void insertAll(ProfileModel profile);
+    void insertAll(ProfileModelLocal profileModelLocal);
 
+
+    @SuppressWarnings("AndroidUnresolvedRoomSqlReference")
+    @Query("UPDATE profiles SET sync_status='true' WHERE id = :id")
+    void update(Integer id);
 }
